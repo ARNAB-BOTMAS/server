@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Background Video</title>
+  <style>
+    /* Ensure the page takes full height and removes margin */
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    /* Style the video to cover the entire background */
+    #bg-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      z-index: -1;
+      /* filter: blur(8px); Apply blur effect to the video */
+    }
+
+    /* Content over the video */
+    .content {
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%); /* Centers the content */
+      z-index: 1;
+      color: white;
+      text-align: center;
+      width: 100%;
+      max-width: 600px; /* Optional: limits the width of the content */
+      padding: 50px;
+      background: rgba(0, 0, 0, 0.693); /* Optional: darkens background for readability */
+      border-radius: 10px; /* Optional: adds rounded corners */
+    }
+
+    button{
+      padding: 5px;
+      width: fit-content;
+      color: darkblue;
+      background: wheat;
+      border: 0;
+      transition: all 0.3s;
+      border-radius: 5px;
+    }
+    button:hover{
+      font-style: bold;
+      color: aliceblue;
+      background: darkblue;
+      border: 0;
+      transition: all 0.3s;
+    }
+
+    a{
+      text-decoration: none;
+      color: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background video -->
+  <video id="bg-video" autoplay muted loop>
+    <source src="./background.mp4" type="video/mp4">
+    Your browser does not support HTML5 video.
+  </video>
+
+  <!-- Foreground content -->
+  <div class="content">
+    <h1>Welcome to My Website</h1>
+    <p>Enjoy the background video!</p>
+    <a href="https://app-count.onrender.com"><button type="button">Go to</button></a>
+    <a href="/create"><button type="button">Create Table</button></a>
+  </div>
+
+</body>
+</html>
