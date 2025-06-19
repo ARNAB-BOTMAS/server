@@ -23,11 +23,14 @@ const authenticateApiKey = (req, res, next) => {
   next(); // Allow the request to proceed
 };
 
+const caCert = process.env.PG_CA_CERT.replace(/\\n/g, '\n');
+
+
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
   ssl: {
     rejectUnauthorized: true,
-    ca: fs.readFileSync("./certs/ca.pem").toString(),
+    ca: caCert,
   },
 });
 // Create table on server start
