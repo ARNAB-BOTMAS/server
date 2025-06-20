@@ -34,6 +34,10 @@ const pool = new Pool({
   },
 });
 // Create table on server start
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
 app.get('/create', async (req, res) => {
   const query = `
     CREATE TABLE IF NOT EXISTS count_data_table (
